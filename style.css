@@ -1,20 +1,81 @@
-/* অ্যানিমেশনের আগের অবস্থা */
-.reveal {
-    opacity: 0;
-    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1); /* এটিই বাউন্স তৈরি করবে */
+:root {
+    --primary: #6366f1;
+    --secondary: #a855f7;
+    --bg: #0f172a;
+    --text: #f8fafc;
 }
 
-/* নিচ থেকে লাফিয়ে উঠবে */
-.reveal-up { transform: translateY(100px) scale(0.8); }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    scroll-behavior: smooth;
+}
 
-/* বাম থেকে লাফিয়ে আসবে */
-.reveal-left { transform: translateX(-150px) rotate(-5deg); }
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+}
 
-/* ডান থেকে লাফিয়ে আসবে */
-.reveal-right { transform: translateX(150px) rotate(5deg); }
+.gradient-text {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-/* যখন একটিভ হবে */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4); }
+
+/* Cards with Glassmorphism */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-up { transform: translateY(80px); }
+.reveal-left { transform: translateX(-100px); }
+.reveal-right { transform: translateX(100px); }
+
 .reveal.active {
     opacity: 1;
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate(0, 0);
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+    font-size: 0.9rem;
+    color: #64748b;
 }
