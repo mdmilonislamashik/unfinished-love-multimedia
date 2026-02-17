@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install Dependencies
         run: npm install --force
@@ -25,10 +25,8 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Fix Permissions and Sync
-        run: |
-          chmod +x node_modules/.bin/cap
-          npx cap sync
+      - name: Sync Capacitor
+        run: npx cap sync
 
       - name: Build APK
         run: |
@@ -41,4 +39,3 @@ jobs:
         with:
           name: app-debug
           path: android/app/build/outputs/apk/debug/app-debug.apk
-           
