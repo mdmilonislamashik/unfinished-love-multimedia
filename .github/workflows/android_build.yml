@@ -2,6 +2,7 @@ name: Build Android APK
 on:
   push:
     branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -16,7 +17,7 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --force
 
       - name: Setup Java
         uses: actions/setup-java@v3
